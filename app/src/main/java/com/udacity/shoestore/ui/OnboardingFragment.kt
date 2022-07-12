@@ -1,43 +1,46 @@
-package com.udacity.shoestore.ui.login
+package com.udacity.shoestore.ui
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
+import com.udacity.shoestore.databinding.FragmentOnboardingBinding
 
-class LoginFragment : Fragment() {
+class OnboardingFragment : Fragment() {
+    private lateinit var binding: FragmentOnboardingBinding
 
-    companion object {
-        fun newInstance() = LoginFragment()
-    }
-
-    private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = DataBindingUtil
-            .inflate< FragmentLoginBinding >(
+
+        binding = DataBindingUtil
+            .inflate(
                 inflater,
-                R.layout.fragment_login,
+                R.layout.fragment_onboarding,
                 container,
                 false
             )
-            return binding.root
+        return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        binding.goToInstructionsButton.setOnClickListener {
+            it.findNavController()
+                .navigate(OnboardingFragmentDirections.actionOnboardingFragmentToInstructionsFragment())
+
+        }
+
 
     }
-
-
 
 }
