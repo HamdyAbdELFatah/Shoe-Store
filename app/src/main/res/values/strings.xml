@@ -7,4 +7,16 @@
     <string name="welcome_to_my_store">Welcome to My Store</string>
     <string name="we_re_glad_you_ve_chosen_us">We\'re glad you\'ve chosen us</string>
     <string name="instructions">Instructions</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shoes_list">Shoes List</string>
+    <string name="this_app_is_simple_to_use_shoes_list_button_is_this_screen_will_take_you_to_screen_contain_list_of_shoes_and_to_add_shoes_you_will_find_button_with_icon_in_button_to_add_shoes_when_click_it">This app is simple to use. Shoes list button is this screen will take you to screen contain list of shoes and to add shoes you will find button with icon + in button to add shoes when click it</string>
+    <string name="add_shoe_button">add shoe button</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="name">Name</string>
+    <string name="size">Size</string>
+    <string name="description">Description</string>
+    <string name="company">Company</string>
+    <string name="logout">Logout</string>
 </resources>
