@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="viewModel"
-            type="com.udacity.shoestore.ui.shoes_list.ShoelistingViewModel" />
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +22,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:hint="@string/name"
-            android:text="@{viewModel.state.name}"
+            android:text="@={shoe.name}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView6"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:hint="@string/size"
-            android:text="@{viewModel.state.size}"
+            android:text="@={shoe.size}"
             android:inputType="numberDecimal"
             app:layout_constraintEnd_toEndOf="@+id/name"
             app:layout_constraintStart_toStartOf="@+id/name"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:hint="@string/company"
-            android:text="@{viewModel.state.company}"
+            android:text="@={shoe.company}"
             app:layout_constraintEnd_toEndOf="@+id/name"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/size">
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:hint="@string/description"
-            android:text="@{viewModel.state.description}"
+            android:text="@={shoe.description}"
             app:layout_constraintEnd_toEndOf="@+id/name"
             app:layout_constraintStart_toStartOf="@+id/name"
             app:layout_constraintTop_toBottomOf="@+id/company">

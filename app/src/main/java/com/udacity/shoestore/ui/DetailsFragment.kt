@@ -6,19 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentDetailsBinding
 import com.udacity.shoestore.models.Shoe
-import com.udacity.shoestore.ui.shoes_list.ShoelistingViewModel
-import java.util.*
 
 class DetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailsBinding
-    private val viewModel: ShoelistingViewModel by activityViewModels()
+    private val shoe = Shoe("", "", "", "", listOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +28,7 @@ class DetailsFragment : Fragment() {
                 container,
                 false
             )
-        binding.viewModel = viewModel
+        binding.shoe = shoe
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
@@ -41,13 +38,7 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.saveButton.setOnClickListener {
-            val name = binding.name.text.toString()
-            val size = binding.size.text.toString()
-            val company = binding.company.text.toString()
-            val description = binding.description.text.toString()
-            if(isValid(name, size, company, description)) {
-                val shoe = Shoe(name, size, company, description, listOf())
-
+            if (isValid(shoe.name, shoe.size, shoe.company, shoe.description)) {
                 val action =
                     DetailsFragmentDirections.actionDetailsFragmentToShoelistingFragment(
                         shoeItem = shoe,
@@ -56,9 +47,11 @@ class DetailsFragment : Fragment() {
             }
         }
         binding.cancelButton.setOnClickListener {
-            it.findNavController().navigate(DetailsFragmentDirections.actionDetailsFragmentToShoelistingFragment(
-                shoeItem = null,
-            ))
+            it.findNavController().navigate(
+                DetailsFragmentDirections.actionDetailsFragmentToShoelistingFragment(
+                    shoeItem = null,
+                )
+            )
         }
     }
 
